@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaše Relaxace – Masáže a Maderoterapie v Řícmanicích</title>
+  <meta name="description" content="Masáže a Maderoterapie v Řícmanicích u Brna. Klasická masáž, lymfatická masáž, masáž horkými kameny, Maderoterapie a další. Objednejte se na tel. 607 173 394." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage:    #7a9e7e;
+      --sage-d:  #4f7553;
+      --sage-l:  #d6e8d7;
+      --cream:   #faf7f2;
+      --warm:    #f2ece0;
+      --text:    #2c2c2c;
+      --muted:   #6b6b6b;
+      --white:   #ffffff;
+      --radius:  12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,247,242,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5ddd0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 2rem;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: .6rem;
+      text-decoration: none; color: var(--sage-d);
+      font-size: 1.15rem; font-weight: bold; letter-spacing: .02em;
+    }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-family: sans-serif;
+      font-size: .9rem; letter-spacing: .04em; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--sage-d); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #e8f0e8 0%, var(--warm) 60%, #ecdfd0 100%);
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+    }
+    .hero-icon { margin-bottom: 1.5rem; }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--sage-d); letter-spacing: .02em; margin-bottom: .6rem;
+    }
+    .hero .tagline {
+      font-family: sans-serif; font-size: 1.05rem; color: var(--muted);
+      margin-bottom: 2rem; font-style: italic;
+    }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: .75rem 1.8rem; border-radius: 50px;
+      text-decoration: none; font-family: sans-serif; font-size: .95rem;
+      font-weight: 600; transition: all .2s; letter-spacing: .03em;
+    }
+    .btn-primary { background: var(--sage-d); color: var(--white); }
+    .btn-primary:hover { background: var(--sage); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(79,117,83,.3); }
+    .btn-secondary { background: transparent; color: var(--sage-d); border: 2px solid var(--sage-d); }
+    .btn-secondary:hover { background: var(--sage-d); color: var(--white); }
+
+    /* ── SECTIONS ── */
+    section { padding: 4.5rem 1.5rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-title {
+      text-align: center; font-size: 1.8rem; color: var(--sage-d);
+      margin-bottom: .5rem; letter-spacing: .02em;
+    }
+    .section-sub {
+      text-align: center; color: var(--muted); font-family: sans-serif;
+      font-size: .95rem; margin-bottom: 2.5rem;
+    }
+    .divider {
+      width: 50px; height: 3px; background: var(--sage);
+      margin: .8rem auto 2rem; border-radius: 2px;
+    }
+
+    /* ── SERVICES ── */
+    #sluzby { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .service-card {
+      background: var(--cream);
+      border: 1px solid #e5ddd0;
+      border-radius: var(--radius);
+      padding: 1.3rem 1.2rem;
+      display: flex; align-items: flex-start; gap: .8rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .service-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .service-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
+    .service-name { font-family: sans-serif; font-size: .93rem; color: var(--text); font-weight: 600; }
+
+    /* ── O NÁS ── */
+    #o-nas { background: var(--sage-l); }
+    .about-box {
+      background: var(--white); border-radius: var(--radius);
+      padding: 2.2rem 2rem; max-width: 680px; margin: 0 auto;
+      text-align: center; font-family: sans-serif; color: var(--muted);
+      line-height: 1.8;
+    }
+    .cert-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--sage-l); color: var(--sage-d);
+      border-radius: 50px; padding: .4rem 1rem; font-size: .85rem;
+      font-weight: 600; margin-top: 1.2rem; font-family: sans-serif;
+    }
+
+    /* ── KONTAKT ── */
+    #kontakt { background: var(--warm); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem; max-width: 750px; margin: 0 auto;
+    }
+    .contact-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 1.6rem 1.5rem; text-align: center;
+    }
+    .contact-card .c-icon { font-size: 2rem; margin-bottom: .6rem; }
+    .contact-card h3 {
+      font-family: sans-serif; font-size: .8rem; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--muted); margin-bottom: .4rem;
+    }
+    .contact-card a { color: var(--sage-d); text-decoration: none; font-weight: 600; }
+    .contact-card a:hover { text-decoration: underline; }
+    .contact-card p { font-family: sans-serif; font-size: .95rem; color: var(--text); }
+    .map-link {
+      display: block; text-align: center; margin-top: 2rem;
+      font-family: sans-serif; font-size: .9rem;
+    }
+    .map-link a { color: var(--sage-d); font-weight: 600; text-decoration: none; }
+    .map-link a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--sage-d); color: rgba(255,255,255,.75);
+      text-align: center; padding: 1.8rem 1.5rem;
+      font-family: sans-serif; font-size: .85rem;
+    }
+    footer a { color: rgba(255,255,255,.9); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: .8rem 1rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: .8rem; }
+      section { padding: 3rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#top">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="14" cy="8" rx="4" ry="7" fill="#7a9e7e" opacity=".9"/>
+      <ellipse cx="20" cy="14" rx="7" ry="4" fill="#7a9e7e" opacity=".6" transform="rotate(-30 20 14)"/>
+      <ellipse cx="8" cy="14" rx="7" ry="4" fill="#7a9e7e" opacity=".6" transform="rotate(30 8 14)"/>
+      <circle cx="14" cy="14" r="3" fill="#4f7553"/>
+      <line x1="14" y1="14" x2="14" y2="27" stroke="#4f7553" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Vaše Relaxace
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sluzby">Služby</a></li>
+    <li><a href="#o-nas">O nás</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-icon">
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="36" cy="36" r="36" fill="#d6e8d7"/>
+      <ellipse cx="36" cy="22" rx="7" ry="13" fill="#7a9e7e" opacity=".85"/>
+      <ellipse cx="52" cy="36" rx="13" ry="7" fill="#7a9e7e" opacity=".6" transform="rotate(-30 52 36)"/>
+      <ellipse cx="20" cy="36" rx="13" ry="7" fill="#7a9e7e" opacity=".6" transform="rotate(30 20 36)"/>
+      <circle cx="36" cy="36" r="6" fill="#4f7553"/>
+      <line x1="36" y1="36" x2="36" y2="62" stroke="#4f7553" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h1>Vaše Relaxace</h1>
+  <p class="tagline">Masáže &amp; Maderoterapie · Řícmanice u Brna</p>
+  <div class="hero-btns">
+    <a class="btn btn-primary" href="tel:607173394">📞 Objednat se</a>
+    <a class="btn btn-secondary" href="#sluzby">Naše služby</a>
+  </div>
+</section>
+
+<!-- SLUŽBY -->
+<section id="sluzby">
+  <div class="container">
+    <h2 class="section-title">Nabídka služeb</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Vyberte si z naší pestré nabídky masáží a ošetření</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🌿</span>
+        <span class="service-name">Klasická masáž</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💧</span>
+        <span class="service-name">Ruční lymfatická masáž</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔥</span>
+        <span class="service-name">Masáž horkými kameny</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🧘</span>
+        <span class="service-name">Antistresová masáž hlavy</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🍫</span>
+        <span class="service-name">Čokoládová masáž</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🍯</span>
+        <span class="service-name">Medová masáž</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎋</span>
+        <span class="service-name">Bambusová masáž</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌸</span>
+        <span class="service-name">Masáž bylinnými měšci</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌺</span>
+        <span class="service-name">Havajské rituály</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🤰</span>
+        <span class="service-name">Těhotenská masáž</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <span class="service-name">Thajská masáž Tok Sen</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🪵</span>
+        <span class="service-name">Maderoterapie</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🍄</span>
+        <span class="service-name">Mykoterapie</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O NÁS -->
+<section id="o-nas">
+  <div class="container">
+    <h2 class="section-title">O nás</h2>
+    <div class="divider"></div>
+    <div class="about-box">
+      <p>Jsme malý rodinný salon v klidném prostředí Řícmanic u Brna. Naším cílem je poskytnout vám chvíli klidu, pohody a skutečné regenerace těla i mysli. Každá masáž je věnovaná pozornost vašim potřebám.</p>
+      <p style="margin-top:1rem;">Používáme kvalitní přírodní přípravky a přistupujeme ke každému klientovi individuálně.</p>
+      <span class="cert-badge">🍄 Certifikovaný mykoterapeut</span>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="container">
+    <h2 class="section-title">Kontakt &amp; Objednávky</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Objednejte se telefonicky nebo e-mailem</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="c-icon">📞</div>
+        <h3>Telefon</h3>
+        <a href="tel:607173394">607 173 394</a>
+      </div>
+      <div class="contact-card">
+        <div class="c-icon">✉️</div>
+        <h3>E-mail</h3>
+        <a href="mailto:vase-relaxace@centrum.cz">vase-relaxace@centrum.cz</a>
+      </div>
+      <div class="contact-card">
+        <div class="c-icon">📍</div>
+        <h3>Adresa</h3>
+        <p>Slunečná 302<br>664 01 Řícmanice</p>
+      </div>
+    </div>
+    <p class="map-link">
+      <a href="https://maps.google.com/?q=Slun%C4%8Dn%C3%A1+302,+664+01+%C5%98%C3%ADcmanice" target="_blank" rel="noopener">
+        🗺️ Zobrazit na mapě →
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Vaše Relaxace · Řícmanice ·
+    <a href="https://www.facebook.com/vaserelaxace" target="_blank" rel="noopener">Facebook</a>
+  </p>
+</footer>
+
+</body>
+</html>
