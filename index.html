@@ -61,9 +61,10 @@
     .btn-primary:hover { background: var(--terra-l); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(155,90,64,.38); }
     .btn-secondary { background: var(--white); color: var(--terra); border: 2px solid var(--terra); }
     .btn-secondary:hover { background: var(--terra); color: var(--white); transform: translateY(-2px); }
-    /* Reservio button override */
-    .reservio-button-container { display: inline-flex !important; }
-    .reservio-cta-btn { border-radius: 50px !important; font-family: 'Lato', sans-serif !important; font-weight: 700 !important; letter-spacing: .07em !important; text-transform: uppercase !important; font-size: .88rem !important; padding: .75rem 1.9rem !important; box-shadow: 0 2px 8px rgba(0,0,0,.08) !important; }
+    /* Reservio button */
+    .btn-reservio { background: var(--terra); color: var(--white); }
+    .btn-reservio:hover { background: var(--terra-l); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(155,90,64,.38); }
+    .btn-large { padding: 1rem 2.4rem; font-size: 1rem; }
     /* contact reservio block */
     .reservio-block { text-align: center; margin-top: 2rem; }
     .reservio-block p { font-size: .9rem; color: var(--muted); margin-bottom: .8rem; }
@@ -180,7 +181,7 @@
     <p class="tagline">Řícmanice u Brna &nbsp;·&nbsp; Váš ostrov klidu</p>
     <div class="hero-btns">
       <a class="btn btn-primary" href="tel:607173394">📞 Zavolat</a>
-      <div class="reservio-button-container" data-text="Online rezervace" data-size="large" data-color="#9b5a40" data-url="https://vase-relaxace.reservio.com"></div>
+      <a class="btn btn-reservio" href="https://vase-relaxace.reservio.com" target="_blank" rel="noopener">📅 Online rezervace</a>
       <a class="btn btn-secondary" href="#sluzby">Naše služby</a>
     </div>
   </div>
@@ -327,7 +328,7 @@
     </p>
     <div class="reservio-block">
       <p>Rezervujte si termín online</p>
-      <div class="reservio-button-container" data-text="Rezervovat termín" data-size="large" data-color="#9b5a40" data-url="https://vase-relaxace.reservio.com"></div>
+      <a class="btn btn-reservio btn-large" href="https://vase-relaxace.reservio.com" target="_blank" rel="noopener">📅 Rezervovat termín online</a>
     </div>
   </div>
 </section>
@@ -359,6 +360,5 @@
     links.classList.remove('open');
   }));
 </script>
-  <script src="https://cdn.reservio.com/widget/button-bundle.js"></script>
 </body>
 </html>
